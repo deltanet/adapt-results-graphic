@@ -1,13 +1,10 @@
 define([
     'core/js/adapt',
-    'core/js/views/componentView'
-], function(Adapt, ComponentView) {
+    'core/js/views/componentView',
+    'core/js/models/componentModel'
+], function(Adapt, ComponentView, ComponentModel) {
 
-    var ResultsGraphic = ComponentView.extend({
-
-      events: {
-            'inview': 'onInview'
-        },
+    var ResultsGraphicView = ComponentView.extend({
 
         preRender: function () {
             if (this.model.setLocking) this.model.setLocking("_isVisible", false);
@@ -127,6 +124,11 @@ define([
 
         postRender: function() {
             this.setReadyStatus();
+            this.setupInview();
+        },
+
+        setupInview: function() {
+            this.setupInviewCompletion('.component-widget');
         },
 
         setupEventListeners: function() {
@@ -188,29 +190,6 @@ define([
             this.show();
         },
 
-        onInview: function(event, visible, visiblePartX, visiblePartY) {
-            if (visible) {
-                if (visiblePartY === 'top') {
-                    this._isVisibleTop = true;
-                } else if (visiblePartY === 'bottom') {
-                    this._isVisibleBottom = true;
-                } else {
-                    this._isVisibleTop = true;
-                    this._isVisibleBottom = true;
-                }
-
-                if (this._isVisibleTop || this._isVisibleBottom) {
-                    this.setCompletionStatus();
-                    // Sometimes (with mobile and virtual keyboards) inview can be triggered
-                    // but the component is not _visible = true, so it does not get marked
-                    // complete. Delay the unbinding of the inview listener until complete
-                    if (this.model.get('_isComplete')) {
-                        this.$el.off("inview");
-                    }
-                }
-            }
-        },
-
         show: function() {
             if(!this.model.get('_isVisible')) {
                 this.model.set('_isVisible', true, {pluginName: "results-graphic"});
@@ -242,17 +221,28 @@ define([
             return "";
         },
 
+        checkIfResetOnRevisit: function() {
+            var isResetOnRevisit = this.model.get('_isResetOnRevisit');
+
+            // If reset is enabled set defaults
+            if (isResetOnRevisit) {
+                this.model.reset(isResetOnRevisit);
+            }
+        },
+
         onRemove: function() {
           if (this.model.unsetLocking) this.model.unsetLocking("_isVisible");
 
           this.removeEventListeners();
         }
 
-      }, {
+      },
+  {
       template: 'results-graphic'
   });
 
-  Adapt.register('results-graphic', ResultsGraphic);
-
-  return ResultsGraphic;
+  return Adapt.register('results-graphic', {
+      model: ComponentModel.extend({}),// create a new class in the inheritance chain so it can be extended per component type if necessary later
+      view: ResultsGraphicView
+  });
 });
