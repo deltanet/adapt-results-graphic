@@ -128,7 +128,7 @@ define([
         },
 
         setupInview: function() {
-            this.setupInviewCompletion('.component-widget');
+            this.setupInviewCompletion('.component__widget');
         },
 
         setupEventListeners: function() {
