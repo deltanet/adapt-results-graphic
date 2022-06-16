@@ -7,13 +7,13 @@
     "ariaRegion": {
       "type": "string",
       "required": true,
-      "default": "",
+      "default": "Results graphic",
       "inputType": "Text",
       "validators": [],
       "translatable": true
     }
   },
-  "properties":{
+  "properties": {
     "_supportedLayout": {
       "type": "string",
       "required": true,
@@ -31,13 +31,13 @@
       "translatable": true
     },
     "_isVisibleBeforeCompletion": {
-      "type":"boolean",
+      "type": "boolean",
       "required": true,
       "default": true,
       "title": "Show before assessment completion",
       "inputType": "Checkbox",
       "validators": [],
-      "help": "If disabled, the image will be hidden until all assessments are completed."
+      "help": "Controls whether this component will be visible or hidden prior to the assessment having been completed."
     },
     "_assessmentId": {
       "type": "string",
@@ -49,12 +49,12 @@
       "help": "This is the unique name of the assessment for which results should be displayed. If you only have one assessment or you wish to show results for all assessments you can leave this blank."
     },
     "_graphic": {
-      "type":"object",
-      "required":true,
+      "type": "object",
+      "required": true,
       "title": "Graphic",
-      "properties":{
+      "properties": {
         "alt": {
-          "type":"string",
+          "type": "string",
           "required": false,
           "default": "",
           "title": "Alternative Text",
@@ -64,7 +64,7 @@
           "translatable": true
         },
         "_src": {
-          "type":"string",
+          "type": "string",
           "required": false,
           "default": "",
           "title": "Asset",
@@ -75,15 +75,15 @@
       }
     },
     "_bands": {
-      "type":"array",
+      "type": "array",
       "required": true,
       "title": "Bands",
       "items": {
-        "type":"object",
+        "type": "object",
         "required": true,
-        "properties":{
+        "properties": {
           "_score": {
-            "type":"number",
+            "type": "number",
             "required": false,
             "title": "Score",
             "inputType": "Number",
@@ -91,7 +91,7 @@
             "help": "Enter a value representing the raw score or percentage for the start of the range."
           },
           "alt": {
-            "type":"string",
+            "type": "string",
             "required": false,
             "default": "",
             "title": "Alternative Text",
@@ -101,7 +101,7 @@
             "translatable": true
           },
           "_src": {
-            "type":"string",
+            "type": "string",
             "required": true,
             "default": "",
             "title": "Asset",

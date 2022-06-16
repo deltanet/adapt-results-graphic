@@ -21,9 +21,9 @@ The attributes listed below are used in *components.json* to configure **Results
 **instruction** (string): This optional text appears above the component. It is frequently used to
 guide the learner’s interaction with the component.  
 
-**_assessmentId** (string): This value must match the [`_id` of the assessment](https://github.com/adaptlearning/adapt-contrib-assessment#attributes) for which results should be displayed.  
-
 **_isVisibleBeforeCompletion** (boolean): Determines whether this component will be visible as the learner enters the assessment article or if it will be displayed only after the learner completes all question components. Acceptable values are `true` or `false`. The default is `false`.
+
+**_assessmentId** (string): This value must match the [`_id` of the assessment](https://github.com/adaptlearning/adapt-contrib-assessment#attributes) for which results should be displayed.  
 
 **_graphic** (object): The image that constitutes the component. It contains values for **alt**, and **_src**.
 
@@ -49,8 +49,8 @@ guide the learner’s interaction with the component.
 No known limitations.  
 
 ----------------------------
-**Version number:**  4.0.0  
-**Framework versions:** 5.0  
+**Version number:**  4.1.0  
+**Framework versions:** 5.8+  
 **Author / maintainer:** DeltaNet [contributors](https://github.com/deltanet/adapt-results-graphic/graphs/contributors)   
 **Accessibility support:** WAI AA   
 **RTL support:** yes  
