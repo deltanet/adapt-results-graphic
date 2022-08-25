@@ -49,9 +49,9 @@ guide the learner’s interaction with the component.
 No known limitations.  
 
 ----------------------------
-**Version number:**  4.1.0  
-**Framework versions:** 5.8+  
-**Author / maintainer:** DeltaNet [contributors](https://github.com/deltanet/adapt-results-graphic/graphs/contributors)   
-**Accessibility support:** WAI AA   
-**RTL support:** yes  
-**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge 12, IE 11, Safari iOS 9+10, Safari OS X 12    
+**Version number:**  5.0.0
+**Framework versions:** 5.19.1+
+**Author / maintainer:** DeltaNet [contributors](https://github.com/deltanet/adapt-results-graphic/graphs/contributors)
+**Accessibility support:** WAI AA
+**RTL support:** yes
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge 12, IE 11, Safari iOS 9+10, Safari OS X 12
